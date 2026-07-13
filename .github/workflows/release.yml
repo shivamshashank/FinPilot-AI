@@ -75,4 +75,3 @@ jobs:
           body: ${{ steps.notes.outputs.notes }}
           target_commitish: main
           generate_release_notes: true
-
