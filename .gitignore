@@ -8,6 +8,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .coverage
+coverage.xml
 htmlcov/
 .venv/
 venv/
@@ -26,4 +27,3 @@ coverage/
 # Logs
 *.log
 npm-debug.log*
-

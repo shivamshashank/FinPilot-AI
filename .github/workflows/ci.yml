@@ -150,4 +150,3 @@ jobs:
 
       - name: Build full stack images
         run: docker compose build
-

@@ -41,4 +41,3 @@ All application APIs should live under `/api/v1`. Operational endpoints such as 
 ## Configuration
 
 Runtime configuration belongs in environment variables. Keep committed files limited to `.env.example` templates and never commit real secrets.
-
