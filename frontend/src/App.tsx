@@ -1,53 +1,32 @@
-import { Activity, Bot, ChartNoAxesCombined, ShieldCheck } from "lucide-react";
+import { AppProvider, useApp } from './components/AppContext';
+import { ThemeProvider } from './components/ThemeContext';
+import LandingPage from './pages/LandingPage';
+import AuthPage from './pages/AuthPage';
+import Layout from './components/Layout';
 
-const features = [
-  {
-    title: "Finance workspace",
-    description: "Track expenses, income, budgets, goals, and reports.",
-    icon: ChartNoAxesCombined,
-  },
-  {
-    title: "AI insights",
-    description: "Use Gemini-powered analysis for summaries and recommendations.",
-    icon: Bot,
-  },
-  {
-    title: "Production baseline",
-    description: "Health checks, typed config, Docker, linting, and tests.",
-    icon: ShieldCheck,
-  },
-];
+function AppRouter() {
+  const { authStep } = useApp();
 
-function App() {
-  return (
-    <main className="app-shell">
-      <section className="hero" aria-labelledby="page-title">
-        <div className="status-pill">
-          <Activity size={16} aria-hidden="true" />
-          Day 1 foundation
-        </div>
-        <h1 id="page-title">FinPilot AI</h1>
-        <p>
-          A production-ready foundation for an AI-powered personal finance
-          platform.
-        </p>
-      </section>
-
-      <section className="feature-grid" aria-label="Foundation features">
-        {features.map((feature) => {
-          const Icon = feature.icon;
-
-          return (
-            <article className="feature-card" key={feature.title}>
-              <Icon size={24} aria-hidden="true" />
-              <h2>{feature.title}</h2>
-              <p>{feature.description}</p>
-            </article>
-          );
-        })}
-      </section>
-    </main>
-  );
+  switch (authStep) {
+    case 'landing':
+      return <LandingPage />;
+    case 'signin':
+    case 'otp':
+    case 'success':
+      return <AuthPage />;
+    case 'authenticated':
+      return <Layout />;
+    default:
+      return <LandingPage />;
+  }
 }
 
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppProvider>
+        <AppRouter />
+      </AppProvider>
+    </ThemeProvider>
+  );
+}

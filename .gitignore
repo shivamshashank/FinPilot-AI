@@ -12,6 +12,8 @@ coverage.xml
 htmlcov/
 .venv/
 venv/
+finpilot.db
+backend/finpilot.db
 
 # Node
 node_modules/
