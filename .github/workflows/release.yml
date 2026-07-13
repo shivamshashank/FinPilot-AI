@@ -1,0 +1,78 @@
+name: Release
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Create GitHub release
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Resolve next version
+        id: version
+        shell: bash
+        run: |
+          latest_tag="$(git tag --list 'v*' --sort=-v:refname | head -n 1)"
+          if [ -z "$latest_tag" ]; then
+            next_version="v0.1.0"
+          else
+            version="${latest_tag#v}"
+            major="${version%%.*}"
+            rest="${version#*.}"
+            minor="${rest%%.*}"
+            patch="${version##*.}"
+            next_version="v${major}.${minor}.$((patch + 1))"
+          fi
+          echo "version=${next_version}" >> "$GITHUB_OUTPUT"
+
+      - name: Create release notes
+        id: notes
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            {
+              echo "notes<<EOF"
+              echo "Release created after merge of PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
+              echo
+              echo "Merged by: ${{ github.event.pull_request.merged_by.login }}"
+              echo "Source branch: ${{ github.event.pull_request.head.ref }}"
+              echo "Merge commit: ${{ github.event.pull_request.merge_commit_sha }}"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo "notes<<EOF"
+              echo "Manual release from workflow dispatch."
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
+          body: ${{ steps.notes.outputs.notes }}
+          target_commitish: main
+          generate_release_notes: true
+
