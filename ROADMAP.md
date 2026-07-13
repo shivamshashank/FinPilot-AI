@@ -39,75 +39,75 @@ Database and auth must come first, then the finance data flows, then analytics, 
 
 ## Day 2: Database and Supabase Setup
 
-- [ ] Create or configure Supabase project
-- [ ] Configure PostgreSQL connection
-- [ ] Set up SQLAlchemy
-- [ ] Set up Alembic migrations
-- [ ] Create core database models:
-  - [ ] User
-  - [ ] Account
-  - [ ] Category
-  - [ ] Transaction/Expense
-  - [ ] Income
-  - [ ] Budget
-  - [ ] SavingGoal
-  - [ ] Receipt
-  - [ ] AIInsight
-- [ ] Generate first migration
-- [ ] Apply migration locally
-- [ ] Verify database connection from FastAPI
+- [x] Create or configure Supabase project
+- [x] Configure PostgreSQL connection
+- [x] Set up SQLAlchemy
+- [x] Set up Alembic migrations
+- [x] Create core database models:
+  - [x] User
+  - [x] Account
+  - [x] Category
+  - [x] Transaction/Expense
+  - [x] Income
+  - [x] Budget
+  - [x] SavingGoal
+  - [x] Receipt
+  - [x] AIInsight
+- [x] Generate first migration
+- [x] Apply migration locally
+- [x] Verify database connection from FastAPI
 
 ## Day 3: Backend Foundation
 
-- [ ] Create FastAPI application entrypoint
-- [ ] Add `/health`, `/ready`, and `/live` endpoints
-- [ ] Configure CORS
-- [ ] Add global error handling
-- [ ] Add request/response logging middleware
-- [ ] Create backend module structure:
-  - [ ] `api/`
-  - [ ] `core/`
-  - [ ] `database/`
-  - [ ] `models/`
-  - [ ] `repositories/`
-  - [ ] `schemas/`
-  - [ ] `services/`
-  - [ ] `utils/`
-- [ ] Add base repository pattern
-- [ ] Add shared Pydantic response conventions
+- [x] Create FastAPI application entrypoint
+- [x] Add `/health`, `/ready`, and `/live` endpoints
+- [x] Configure CORS
+- [x] Add global error handling
+- [x] Add request/response logging middleware
+- [x] Create backend module structure:
+  - [x] `api/`
+  - [x] `core/`
+  - [x] `database/`
+  - [x] `models/`
+  - [x] `repositories/`
+  - [x] `schemas/`
+  - [x] `services/`
+  - [x] `utils/`
+- [x] Add base repository pattern
+- [x] Add shared Pydantic response conventions
 
 ## Day 4: Authentication
 
 - [ ] Configure Supabase Auth
-- [ ] Implement register endpoint
-- [ ] Implement login endpoint
+- [x] Implement register endpoint
+- [x] Implement login endpoint
 - [ ] Implement logout endpoint
-- [ ] Implement JWT verification dependency
-- [ ] Add protected-route dependency
-- [ ] Add current-user endpoint
+- [x] Implement JWT verification dependency
+- [x] Add protected-route dependency
+- [x] Add current-user endpoint
 - [ ] Create frontend auth context
-- [ ] Build login page
-- [ ] Build register page
-- [ ] Persist session on page refresh
-- [ ] Protect authenticated frontend routes
+- [x] Build login page
+- [x] Build register page
+- [x] Persist session on page refresh
+- [x] Protect authenticated frontend routes
 
 ## Day 5: App Shell and UI System
 
 - [ ] Install and configure TailwindCSS
 - [ ] Set up shadcn/ui
-- [ ] Configure React Router
-- [ ] Create dashboard layout
-- [ ] Create sidebar navigation
-- [ ] Add light/dark theme support
+- [x] Configure React Router
+- [x] Create dashboard layout
+- [x] Create sidebar navigation
+- [x] Add light/dark theme support
 - [ ] Add global loading states
-- [ ] Add toast notification system
-- [ ] Create reusable UI components:
-  - [ ] Page header
-  - [ ] Data table
-  - [ ] Empty state
-  - [ ] Modal/dialog
-  - [ ] Form field wrapper
-- [ ] Confirm responsive layout on mobile and desktop
+- [x] Add toast notification system
+- [x] Create reusable UI components:
+  - [x] Page header
+  - [x] Data table
+  - [x] Empty state
+  - [x] Modal/dialog
+  - [x] Form field wrapper
+- [x] Confirm responsive layout on mobile and desktop
 
 ## Day 6: Expense Management
 

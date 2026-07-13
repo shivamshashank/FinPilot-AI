@@ -5,8 +5,8 @@ FinPilot AI is organized as a full-stack SaaS application with a React frontend 
 ## System Layers
 
 - **Frontend:** React, TypeScript, Vite, and CSS modules/global CSS for the initial shell.
-- **Backend:** FastAPI, Pydantic settings, API router versioning, and health endpoints.
-- **Database:** Supabase PostgreSQL will be added during Day 2.
+- **Backend:** FastAPI, Pydantic settings, API router versioning, health endpoints, structured error handling, and request logging middleware.
+- **Database:** Supabase PostgreSQL and SQLAlchemy/Alembic scaffolding are in place for Day 2.
 - **Auth:** Supabase Auth will be added during Day 4.
 - **AI:** Gemini service integration will be added after the core finance flows exist.
 
