@@ -1,18 +1,18 @@
 import React, { useState, useMemo } from 'react';
 import { useApp } from '../components/AppContext';
 import { Transaction } from '../types';
-import { 
-  Search, 
-  Filter, 
-  ArrowUpDown, 
-  Plus, 
-  Trash2, 
-  Edit3, 
-  Receipt, 
-  Paperclip, 
-  X, 
-  ChevronLeft, 
-  ChevronRight, 
+import {
+  Search,
+  Filter,
+  ArrowUpDown,
+  Plus,
+  Trash2,
+  Edit3,
+  Receipt,
+  Paperclip,
+  X,
+  ChevronLeft,
+  ChevronRight,
   ArrowUpRight,
   UploadCloud,
   FileCheck2,
@@ -21,12 +21,12 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Expenses() {
-  const { 
-    transactions, 
-    addTransaction, 
-    editTransaction, 
+  const {
+    transactions,
+    addTransaction,
+    editTransaction,
     deleteTransaction,
-    userProfile 
+    userProfile
   } = useApp();
 
   // Search & Filtering states
@@ -67,8 +67,8 @@ export default function Expenses() {
     // Search filter
     if (searchTerm) {
       const q = searchTerm.toLowerCase();
-      result = result.filter(t => 
-        t.description.toLowerCase().includes(q) || 
+      result = result.filter(t =>
+        t.description.toLowerCase().includes(q) ||
         t.category.toLowerCase().includes(q)
       );
     }
@@ -195,7 +195,7 @@ export default function Expenses() {
 
   return (
     <div className="space-y-6" id="expenses-page">
-      
+
       {/* Title Header bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4" id="expenses-header">
         <div>
@@ -281,8 +281,8 @@ export default function Expenses() {
                 </tr>
               ) : (
                 paginatedExpenses.map((tx) => (
-                  <tr 
-                    key={tx.id} 
+                  <tr
+                    key={tx.id}
                     className="hover:bg-gray-50/50 dark:hover:bg-zinc-850/35 transition-colors cursor-pointer group"
                     onClick={() => setActiveDetailTx(tx)}
                     id={`expense-row-${tx.id}`}
@@ -374,7 +374,7 @@ export default function Expenses() {
               exit={{ opacity: 0, scale: 0.95 }}
               className="bg-white dark:bg-zinc-900 border border-gray-250 dark:border-zinc-800 rounded-3xl w-full max-w-2xl shadow-2xl overflow-hidden font-sans grid grid-cols-1 md:grid-cols-12"
             >
-              
+
               {/* Receipt Upload/Ocr Panel on Left */}
               <div className="md:col-span-5 bg-slate-50 dark:bg-zinc-950/40 p-6 border-r border-gray-100 dark:border-zinc-800/80 flex flex-col justify-between" id="receipt-upload-sidebar">
                 <div>
@@ -389,7 +389,7 @@ export default function Expenses() {
                 </div>
 
                 {/* Upload drag drop box */}
-                <div 
+                <div
                   id="receipt-drop-zone"
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleReceiptFileDrop}

@@ -25,7 +25,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    
+
     const applyTheme = () => {
       let resolvedTheme = theme;
       if (theme === 'system') {

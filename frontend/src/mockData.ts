@@ -59,7 +59,7 @@ export const INITIAL_TRANSACTIONS: Transaction[] = [
     paymentMethod: "PayPal",
     status: "completed"
   },
-  
+
   // Expenses
   {
     id: "tx-5",
@@ -407,7 +407,7 @@ Here is an actionable optimization plan based on your current July spending patt
    - *Recommendation*: We found some redundant dev tool subscriptions. Pausing them recovers **$45.00** monthly.
 
 4. **Groceries Optimization (Opportunity: -$60)**:
-   - Your grocery trips (Whole Foods and Trader Joe's) sum to **$333.70** out of a **$500** limit. 
+   - Your grocery trips (Whole Foods and Trader Joe's) sum to **$333.70** out of a **$500** limit.
    - *Recommendation*: Swap to store-brands and utilize bulk-purchases for pantry staples.
 
 5. **Direct Savings Transfer (Action: +$125)**:
@@ -432,7 +432,7 @@ Currently, you have the following active SaaS and utility subscriptions logged:
 - **Consolidation**: Do you have any duplicate streaming services (e.g., Netflix, Spotify, Disney+) not actively reflected here? Aggregating and sharing family plans can save up to **$35.00/month**.
 - **Set Alerts**: I have set a budget alert on your "Software SaaS" budget category to trigger if any un-noted subscription auto-renews.`,
 
-  "is my current rent within healthy budget ratios?": `Your monthly rent is **$1,950.00**. 
+  "is my current rent within healthy budget ratios?": `Your monthly rent is **$1,950.00**.
 
 Let's evaluate how this fits against your income ratios using standard financial frameworks:
 
@@ -440,7 +440,7 @@ Let's evaluate how this fits against your income ratios using standard financial
 Historically, it's recommended that housing costs shouldn't exceed 30% of your gross monthly income.
 * Your current Monthly Salary: **$6,450.00** (Net)
 * Total Monthly Income (including Freelance & Shopify payouts this month): **$9,020.00**
-* **Rent-to-Salary Ratio (Gross/Net Base)**: **30.2%** 
+* **Rent-to-Salary Ratio (Gross/Net Base)**: **30.2%**
 * **Rent-to-Total Income Ratio**: **21.6%**
 
 *Verdict*: On your base salary alone, your rent sits **exactly at the 30% boundary**. When including your supplementary freelance and business streams, it drops to a highly comfortable **21.6%**.
@@ -474,7 +474,7 @@ You are in a **very strong position**. Your housing costs are fully sustainable.
 
 ### 1. Recalibrate Your "Dining Out" Limit 🍔
 * **Current Limit**: $400.00 | **Spent (to-date)**: $152.50
-* **Analysis**: You are currently spending an average of $11.73 per day on Dining Out. Projecting this to the end of July puts you at roughly $360.00. 
+* **Analysis**: You are currently spending an average of $11.73 per day on Dining Out. Projecting this to the end of July puts you at roughly $360.00.
 * **Action**: Lower your official budget limit to **$300.00** next month. This creates a psychological constraint and frees up **$100.00** to be automatically redirected to your *Emergency Fund* savings goal.
 
 ### 2. Capitalize on Freelance Surplus 💻

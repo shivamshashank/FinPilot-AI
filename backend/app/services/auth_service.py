@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from typing import Any
 
 import bcrypt
@@ -15,7 +15,7 @@ settings = get_settings()
 
 
 def create_access_token(subject: str, expires_delta: int | None = None) -> str:
-    expire = datetime.now(timezone.utc) + timedelta(minutes=expires_delta or 60)
+    expire = datetime.now(UTC) + timedelta(minutes=expires_delta or 60)
     payload = {"sub": subject, "exp": expire}
     secret = settings.jwt_secret or os.getenv("JWT_SECRET", "change-me")
     algorithm = settings.jwt_algorithm or os.getenv("JWT_ALGORITHM", "HS256")

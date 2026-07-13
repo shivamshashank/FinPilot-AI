@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useApp } from '../components/AppContext';
 import { useTheme } from '../components/ThemeContext';
-import { 
-  User, 
-  Settings as LucideSettings, 
-  Bell, 
-  ShieldCheck, 
-  Lock, 
-  Trash2, 
-  Download, 
-  CheckCircle2, 
-  Sun, 
-  Moon, 
-  Laptop, 
-  Check, 
-  AlertOctagon, 
-  Sparkles 
+import {
+  User,
+  Settings as LucideSettings,
+  Bell,
+  ShieldCheck,
+  Lock,
+  Trash2,
+  Download,
+  CheckCircle2,
+  Sun,
+  Moon,
+  Laptop,
+  Check,
+  AlertOctagon,
+  Sparkles
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -77,7 +77,7 @@ export default function Settings() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start" id="settings-body-wrapper">
-        
+
         {/* Left Side settings navigator tabs (3 cols) */}
         <div className="md:col-span-3 space-y-1 bg-white dark:bg-zinc-900 p-3 rounded-2xl border border-gray-200/50 dark:border-zinc-850" id="settings-tabs">
           {[
@@ -109,7 +109,7 @@ export default function Settings() {
 
         {/* Right Side Settings Panel wrapper (9 cols) */}
         <div className="md:col-span-9 bg-white dark:bg-zinc-900 border border-gray-200/50 dark:border-zinc-850 p-6 rounded-3xl shadow-sm min-h-[400px]" id="settings-panel-content">
-          
+
           {/* TAB 1: PROFILE ATTRIBUTES */}
           {activeTab === 'profile' && (
             <form id="settings-profile-form" onSubmit={handleSaveProfile} className="space-y-6">
@@ -122,9 +122,9 @@ export default function Settings() {
               <div className="flex items-center gap-4">
                 <img src={userProfile.avatarUrl} alt={userProfile.name} className="h-14 w-14 rounded-full object-cover border border-gray-250 ring-2 ring-gray-100 dark:ring-zinc-800" />
                 <div>
-                  <button 
-                    type="button" 
-                    onClick={() => alert("Photo upload simulated")} 
+                  <button
+                    type="button"
+                    onClick={() => alert("Photo upload simulated")}
                     className="px-3 py-1.5 border border-gray-250 dark:border-zinc-800 text-gray-600 dark:text-zinc-300 text-[11px] font-bold rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-805 cursor-pointer"
                   >
                     Change Picture
@@ -203,8 +203,8 @@ export default function Settings() {
                         type="button"
                         onClick={() => setTheme(preset.id as any)}
                         className={`flex-1 max-w-[150px] py-3.5 border rounded-xl flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                          isSel 
-                            ? 'border-indigo-500 bg-indigo-50/10 text-indigo-500 dark:text-indigo-400' 
+                          isSel
+                            ? 'border-indigo-500 bg-indigo-50/10 text-indigo-500 dark:text-indigo-400'
                             : 'border-gray-200/60 dark:border-zinc-800 text-gray-400 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-zinc-950/50'
                         }`}
                       >
@@ -321,9 +321,9 @@ export default function Settings() {
                       <span className="text-[10px] text-emerald-500 font-mono">● LIVE SYNCED OK</span>
                     </div>
                   </div>
-                  <button 
+                  <button
                     id="disconnect-plaid"
-                    onClick={() => alert("Simulated Plaid disconnect")} 
+                    onClick={() => alert("Simulated Plaid disconnect")}
                     className="px-2.5 py-1 text-gray-500 hover:text-red-500 border border-gray-250 dark:border-zinc-800 text-[10px] font-bold rounded-lg cursor-pointer"
                   >
                     Disconnect

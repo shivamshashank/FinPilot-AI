@@ -1,8 +1,8 @@
 from fastapi.testclient import TestClient
 from sqlalchemy import text
 
-from app.main import app
 from app.database.session import get_engine
+from app.main import app
 
 client = TestClient(app)
 
@@ -43,13 +43,13 @@ def test_me_endpoint_requires_token() -> None:
 def test_duplicate_registration() -> None:
     _reset_users_table()
     email = "duplicate@example.com"
-    
+
     # First registration
     client.post(
         "/api/v1/auth/register",
         json={"email": email, "password": "secret123", "full_name": "User 1"},
     )
-    
+
     # Duplicate registration
     response = client.post(
         "/api/v1/auth/register",
@@ -66,7 +66,7 @@ def test_invalid_login_credentials() -> None:
         "/api/v1/auth/register",
         json={"email": email, "password": "secret123", "full_name": "User 1"},
     )
-    
+
     # Invalid password
     response = client.post(
         "/api/v1/auth/login",
@@ -74,7 +74,7 @@ def test_invalid_login_credentials() -> None:
     )
     assert response.status_code == 401
     assert response.json()["detail"] == "invalid credentials"
-    
+
     # Non-existent user
     response = client.post(
         "/api/v1/auth/login",
@@ -93,10 +93,10 @@ def test_me_endpoint_with_valid_token() -> None:
     )
     user_id = register_response.json()["user"]["id"]
     token = register_response.json()["access_token"]
-    
+
     headers = {"Authorization": f"Bearer {token}"}
     response = client.get("/api/v1/auth/me", headers=headers)
-    
+
     assert response.status_code == 200
     assert response.json()["user"]["sub"] == str(user_id)
 
@@ -106,4 +106,3 @@ def test_me_endpoint_with_invalid_token() -> None:
     response = client.get("/api/v1/auth/me", headers=headers)
     assert response.status_code == 401
     assert response.json()["detail"] == "invalid token"
-

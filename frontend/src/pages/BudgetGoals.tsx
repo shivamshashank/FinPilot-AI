@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useApp } from '../components/AppContext';
-import { 
-  Plus, 
-  PiggyBank, 
-  Sparkles, 
-  TrendingUp, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ShieldCheck, 
-  ChevronRight, 
+import {
+  Plus,
+  PiggyBank,
+  Sparkles,
+  TrendingUp,
+  CheckCircle2,
+  AlertTriangle,
+  ShieldCheck,
+  ChevronRight,
   ArrowRight,
   Gift,
   PlusCircle,
@@ -17,16 +17,16 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function BudgetGoals() {
-  const { 
-    budgets, 
-    addBudget, 
-    editBudget, 
-    deleteBudget, 
-    savingsGoals, 
-    addSavingsGoal, 
-    contributeToGoal, 
+  const {
+    budgets,
+    addBudget,
+    editBudget,
+    deleteBudget,
+    savingsGoals,
+    addSavingsGoal,
+    contributeToGoal,
     deleteSavingsGoal,
-    userProfile 
+    userProfile
   } = useApp();
 
   // Modal open states
@@ -117,7 +117,7 @@ export default function BudgetGoals() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8" id="budget-goals-page">
-      
+
       {/* LEFT COLUMN: ACTIVE BUDGETS (7 cols) */}
       <div className="lg:col-span-7 space-y-6" id="budgets-panel">
         <div className="flex items-center justify-between">
@@ -143,20 +143,20 @@ export default function BudgetGoals() {
             const remaining = b.limit - b.spent;
 
             return (
-              <div 
-                key={b.id} 
+              <div
+                key={b.id}
                 className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col justify-between"
                 id={`budget-card-${b.id}`}
               >
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-gray-900 dark:text-white">{b.category}</span>
-                    <span 
-                      className="h-2.5 w-2.5 rounded-full shrink-0" 
-                      style={{ backgroundColor: isOver ? '#ef4444' : b.color }} 
+                    <span
+                      className="h-2.5 w-2.5 rounded-full shrink-0"
+                      style={{ backgroundColor: isOver ? '#ef4444' : b.color }}
                     />
                   </div>
-                  
+
                   <div className="mt-4">
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-2xl font-extrabold text-gray-900 dark:text-white">${b.spent.toFixed(0)}</span>
@@ -164,12 +164,12 @@ export default function BudgetGoals() {
                     </div>
 
                     <div className="w-full bg-gray-100 dark:bg-zinc-850 h-2 rounded-full overflow-hidden mt-3">
-                      <div 
-                        className="h-full rounded-full transition-all duration-300" 
-                        style={{ 
-                          width: `${percentage}%`, 
-                          backgroundColor: isOver ? '#ef4444' : b.color 
-                        }} 
+                      <div
+                        className="h-full rounded-full transition-all duration-300"
+                        style={{
+                          width: `${percentage}%`,
+                          backgroundColor: isOver ? '#ef4444' : b.color
+                        }}
                       />
                     </div>
                   </div>
@@ -249,8 +249,8 @@ export default function BudgetGoals() {
             const isCompleted = g.current >= g.target;
 
             return (
-              <div 
-                key={g.id} 
+              <div
+                key={g.id}
                 className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-250/50 dark:border-zinc-850 shadow-sm flex flex-col justify-between"
                 id={`goal-card-${g.id}`}
               >
@@ -264,7 +264,7 @@ export default function BudgetGoals() {
                       <span className="text-[9px] text-gray-400 font-mono">DEADLINE: {g.deadline}</span>
                     </div>
                   </div>
-                  
+
                   <span className="text-[10px] font-mono bg-indigo-50 dark:bg-indigo-950/40 text-indigo-500 dark:text-indigo-400 font-bold px-2.5 py-0.5 rounded-full">
                     {percentage.toFixed(0)}% FUNDED
                   </span>
@@ -279,12 +279,12 @@ export default function BudgetGoals() {
                   </div>
 
                   <div className="w-full bg-gray-100 dark:bg-zinc-850 h-2.5 rounded-full overflow-hidden mt-2">
-                    <div 
-                      className="h-full rounded-full transition-all duration-300" 
-                      style={{ 
-                        width: `${percentage}%`, 
-                        backgroundColor: isCompleted ? '#10b981' : g.color 
-                      }} 
+                    <div
+                      className="h-full rounded-full transition-all duration-300"
+                      style={{
+                        width: `${percentage}%`,
+                        backgroundColor: isCompleted ? '#10b981' : g.color
+                      }}
                     />
                   </div>
                 </div>
@@ -299,7 +299,7 @@ export default function BudgetGoals() {
                   >
                     REMOVE
                   </button>
-                  
+
                   {!isCompleted && (
                     <button
                       id={`contribute-goal-${g.id}`}
@@ -323,7 +323,7 @@ export default function BudgetGoals() {
               <Sparkles className="h-4 w-4 animate-pulse" />
               <span>FinPilot Recommendation Loop</span>
             </div>
-            
+
             <h3 className="text-sm font-bold text-white mt-4">Optimize Dining Out to fund Tokyo Trip 42 days early</h3>
             <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
               You are currently pacing $100.00 under your Dining Out limit. By choosing to lower your Dining Out budget boundary to **$300.00**, we can automatically sweep the $100.00 difference straight to your **Tokyo Trip 2027** goal.
@@ -400,8 +400,8 @@ export default function BudgetGoals() {
                         type="button"
                         onClick={() => setBColor(color)}
                         className={`h-6 w-6 rounded-full border transition-all cursor-pointer ${
-                          bColor === color 
-                            ? 'scale-110 ring-2 ring-indigo-500 dark:ring-white border-transparent' 
+                          bColor === color
+                            ? 'scale-110 ring-2 ring-indigo-500 dark:ring-white border-transparent'
                             : 'border-gray-200/50 dark:border-zinc-800'
                         }`}
                         style={{ backgroundColor: color }}
@@ -512,8 +512,8 @@ export default function BudgetGoals() {
                         type="button"
                         onClick={() => setGColor(color)}
                         className={`h-6 w-6 rounded-full border transition-all cursor-pointer ${
-                          gColor === color 
-                            ? 'scale-110 ring-2 ring-indigo-500 dark:ring-white border-transparent' 
+                          gColor === color
+                            ? 'scale-110 ring-2 ring-indigo-500 dark:ring-white border-transparent'
                             : 'border-gray-200/50 dark:border-zinc-800'
                         }`}
                         style={{ backgroundColor: color }}

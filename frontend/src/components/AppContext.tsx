@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Transaction, Budget, SavingsGoal, FinancialAlert, UserProfile, ChatMessage } from '../types';
-import { 
-  INITIAL_USER_PROFILE, 
-  INITIAL_TRANSACTIONS, 
-  INITIAL_BUDGETS, 
-  INITIAL_SAVINGS_GOALS, 
+import {
+  INITIAL_USER_PROFILE,
+  INITIAL_TRANSACTIONS,
+  INITIAL_BUDGETS,
+  INITIAL_SAVINGS_GOALS,
   INITIAL_ALERTS,
   CHAT_RESPONSES
 } from '../mockData';
@@ -28,7 +28,7 @@ interface AppContextType {
   addTransaction: (tx: Omit<Transaction, 'id'>) => void;
   editTransaction: (tx: Transaction) => void;
   deleteTransaction: (id: string) => void;
-  
+
   budgets: Budget[];
   addBudget: (budget: Omit<Budget, 'id' | 'spent'>) => void;
   editBudget: (budget: Budget) => void;
@@ -277,7 +277,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setSavingsGoals(prev => prev.map(g => {
       if (g.id === id) {
         const nextAmount = Math.min(g.target, g.current + amount);
-        
+
         // Log transaction for the contribution
         addTransaction({
           type: 'expense',
@@ -367,7 +367,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           const totalSpent = transactions.filter(t => t.type === 'expense').reduce((sum, t) => sum + t.amount, 0);
           const totalEarned = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
           const activeSavings = savingsGoals.reduce((sum, g) => sum + g.current, 0);
-          
+
           reply = `I've analyzed your current account state:
 - Total July Earned: **$${totalEarned.toLocaleString(undefined, { minimumFractionDigits: 2 })}**
 - Total July Spent: **$${totalSpent.toLocaleString(undefined, { minimumFractionDigits: 2 })}**

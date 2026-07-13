@@ -3,14 +3,14 @@ import { useApp } from './AppContext';
 import Sidebar from './Sidebar';
 import BottomNav from './BottomNav';
 import ThemeToggle from './ThemeToggle';
-import { 
-  Bell, 
-  Search, 
-  Plus, 
-  Sparkles, 
-  ChevronRight, 
-  User, 
-  Settings, 
+import {
+  Bell,
+  Search,
+  Plus,
+  Sparkles,
+  ChevronRight,
+  User,
+  Settings,
   LogOut,
   X,
   TrendingUp,
@@ -31,12 +31,12 @@ import Notifications from '../pages/Notifications';
 import SettingsPage from '../pages/Settings';
 
 export default function Layout() {
-  const { 
-    currentView, 
-    setCurrentView, 
-    logout, 
-    userProfile, 
-    alerts, 
+  const {
+    currentView,
+    setCurrentView,
+    logout,
+    userProfile,
+    alerts,
     markAlertAsRead,
     addTransaction,
     budgets
@@ -59,7 +59,7 @@ export default function Layout() {
   const userDropdownRef = useRef<HTMLDivElement>(null);
 
   // Categories based on Type
-  const categories = txType === 'expense' 
+  const categories = txType === 'expense'
     ? ["Housing", "Groceries", "Dining Out", "Transport", "Entertainment", "Shopping", "Software SaaS", "Utilities", "Health & Fitness"]
     : ["Salary", "Freelance", "Business", "Investment"];
 
@@ -149,7 +149,7 @@ export default function Layout() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 relative h-screen pb-16 md:pb-0" id="main-scroll-wrapper">
         {/* Top bar header */}
-        <header 
+        <header
           id="main-topbar"
           className="h-16 bg-white dark:bg-zinc-950/80 backdrop-blur-md border-b border-gray-200/50 dark:border-zinc-900/50 px-6 flex items-center justify-between shrink-0 sticky top-0 z-40"
         >
@@ -164,7 +164,7 @@ export default function Layout() {
 
           {/* Right: Quick Tools */}
           <div className="flex items-center gap-3" id="topbar-actions">
-            
+
             {/* Quick transaction add button */}
             <button
               id="topbar-quick-add-btn"
@@ -212,8 +212,8 @@ export default function Layout() {
                   >
                     <div className="p-4 border-b border-gray-100 dark:border-zinc-800 flex items-center justify-between">
                       <span className="font-semibold text-xs uppercase tracking-wider text-gray-400 dark:text-zinc-500">Unread Insights ({unreadAlerts.length})</span>
-                      <button 
-                        onClick={() => setCurrentView('notifications')} 
+                      <button
+                        onClick={() => setCurrentView('notifications')}
                         className="text-xs text-indigo-500 hover:underline cursor-pointer"
                       >
                         All Alerts
@@ -225,8 +225,8 @@ export default function Layout() {
                         <p className="p-6 text-center text-xs text-gray-400 dark:text-zinc-500 font-sans">No notifications received.</p>
                       ) : (
                         activeAlertsToShow.map((alert) => (
-                          <div 
-                            key={alert.id} 
+                          <div
+                            key={alert.id}
                             onClick={() => {
                               markAlertAsRead(alert.id);
                               setShowNotifications(false);
@@ -334,7 +334,7 @@ export default function Layout() {
             >
               <div className="p-6 border-b border-gray-100 dark:border-zinc-800 flex items-center justify-between">
                 <h3 className="font-sans font-bold text-lg text-gray-950 dark:text-white">Log New Transaction</h3>
-                <button 
+                <button
                   id="close-add-tx-modal"
                   onClick={() => setShowAddTxModal(false)}
                   className="p-1.5 hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-zinc-900 dark:hover:text-white rounded-lg cursor-pointer"
@@ -344,7 +344,7 @@ export default function Layout() {
               </div>
 
               <form onSubmit={handleAddTxSubmit} className="p-6 space-y-4">
-                
+
                 {/* Type Selection (Income vs Expense Toggle) */}
                 <div className="flex gap-2 p-1.5 bg-gray-100 dark:bg-zinc-950 rounded-2xl border border-gray-200/50 dark:border-zinc-850">
                   <button

@@ -1,11 +1,11 @@
 import { useApp } from '../components/AppContext';
-import { 
-  Bell, 
-  Trash2, 
-  Check, 
-  AlertTriangle, 
-  Info, 
-  CheckCircle2, 
+import {
+  Bell,
+  Trash2,
+  Check,
+  AlertTriangle,
+  Info,
+  CheckCircle2,
   Sparkles,
   ArrowRight
 } from 'lucide-react';
@@ -33,7 +33,7 @@ export default function Notifications() {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto" id="notifications-page">
-      
+
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4" id="notifications-header">
         <div>
@@ -138,7 +138,7 @@ export default function Notifications() {
           <h3 className="text-sm font-bold text-white mt-3 font-sans">Automated Weekly Compliance Audit Compiled</h3>
           <p className="text-[11px] text-zinc-400 mt-1 max-w-xl leading-relaxed font-sans">We analyzed your spending velocity for July 2026. All limits are fully complaint with no critical risk items. We recommend reviewing your investment allocations before July 31.</p>
         </div>
-        <button 
+        <button
           id="alerts-ai-action"
           onClick={() => alert("Forwarding to Analytics Hub")}
           className="px-4 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-xs font-semibold rounded-xl transition-all flex items-center gap-1 shrink-0 cursor-pointer"

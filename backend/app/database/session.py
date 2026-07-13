@@ -6,7 +6,6 @@ from sqlalchemy.engine import Engine
 from sqlalchemy.orm import sessionmaker
 
 from app.core.config import get_settings
-from app.models.base import Base
 
 settings = get_settings()
 
@@ -30,7 +29,9 @@ def get_engine() -> Engine:
 def get_session_factory() -> sessionmaker:
     global _SessionLocal
     if _SessionLocal is None:
-        _SessionLocal = sessionmaker(bind=get_engine(), autoflush=False, autocommit=False, expire_on_commit=False)
+        _SessionLocal = sessionmaker(
+            bind=get_engine(), autoflush=False, autocommit=False, expire_on_commit=False
+        )
     return _SessionLocal
 
 

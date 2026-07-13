@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useApp } from '../components/AppContext';
-import { 
-  Sparkles, 
-  Send, 
-  Trash2, 
-  MessageSquare, 
-  Paperclip, 
-  Plus, 
+import {
+  Sparkles,
+  Send,
+  Trash2,
+  MessageSquare,
+  Paperclip,
+  Plus,
   ArrowRight,
   Info,
   Lock,
@@ -18,11 +18,11 @@ import { CHAT_SUGGESTED_PROMPTS } from '../mockData';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function AIAssistant() {
-  const { 
-    chatMessages, 
-    sendChatMessage, 
-    clearChat, 
-    isAiTyping 
+  const {
+    chatMessages,
+    sendChatMessage,
+    clearChat,
+    isAiTyping
   } = useApp();
 
   const [inputMsg, setInputMsg] = useState('');
@@ -72,10 +72,10 @@ export default function AIAssistant() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[calc(100vh-140px)] min-h-[500px]" id="ai-assistant-page">
-      
+
       {/* LEFT COLUMN: CO-PILOT CHAT DIRECTORY & PROMPTS (4 cols) */}
       <div className="lg:col-span-4 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-200/50 dark:border-zinc-850 p-6 flex flex-col justify-between" id="chat-sidebar-panel">
-        
+
         <div className="space-y-6">
           <div>
             <div className="flex items-center gap-1.5 text-[10px] text-indigo-500 font-mono tracking-widest font-bold uppercase">
@@ -89,7 +89,7 @@ export default function AIAssistant() {
           {/* Quick suggestions templates */}
           <div className="space-y-2.5">
             <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-wider block">Suggested Inquiries</span>
-            
+
             <div className="space-y-1.5" id="chat-prompts-list">
               {CHAT_SUGGESTED_PROMPTS.map((prompt) => (
                 <button
@@ -122,7 +122,7 @@ export default function AIAssistant() {
 
       {/* RIGHT COLUMN: CHAT WINDOW WINDOW (8 cols) */}
       <div className="lg:col-span-8 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col overflow-hidden h-full relative" id="chat-conversation-panel">
-        
+
         {/* Chat window Header */}
         <div className="p-4 border-b border-gray-100 dark:border-zinc-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
@@ -144,17 +144,17 @@ export default function AIAssistant() {
         <div className="flex-1 overflow-y-auto p-6 space-y-4" id="chat-messages-container">
           {chatMessages.map((msg) => {
             const isUser = msg.sender === 'user';
-            
+
             return (
-              <div 
-                key={msg.id} 
+              <div
+                key={msg.id}
                 className={`flex gap-3 max-w-[85%] ${isUser ? 'ml-auto flex-row-reverse' : 'mr-auto'}`}
                 id={`chat-msg-${msg.id}`}
               >
                 {/* Visual profile icon */}
                 <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 text-xs ${
-                  isUser 
-                    ? 'bg-zinc-900 text-white' 
+                  isUser
+                    ? 'bg-zinc-900 text-white'
                     : 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-500 dark:text-indigo-400 border border-indigo-500/10'
                 }`}>
                   {isUser ? 'U' : <Sparkles className="h-4 w-4" />}
@@ -163,8 +163,8 @@ export default function AIAssistant() {
                 <div className={`space-y-1 ${isUser ? 'text-right' : 'text-left'}`}>
                   {/* Bubble wrapper */}
                   <div className={`p-4 rounded-2xl text-xs leading-relaxed font-sans border whitespace-pre-wrap ${
-                    isUser 
-                      ? 'bg-zinc-950 text-white border-transparent' 
+                    isUser
+                      ? 'bg-zinc-950 text-white border-transparent'
                       : 'bg-slate-50 dark:bg-zinc-950/40 text-gray-800 dark:text-zinc-200 border-gray-150/50 dark:border-zinc-850/60'
                   }`}>
                     {/* Render basic custom bold and listing formatting for clean readability */}
@@ -220,7 +220,7 @@ export default function AIAssistant() {
         {/* Bottom Input box */}
         <div className="p-4 border-t border-gray-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 shrink-0">
           <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="flex items-center gap-2">
-            
+
             {/* Attachment Button */}
             <button
               id="chat-paperclip-btn"
@@ -278,7 +278,7 @@ export default function AIAssistant() {
                 <div className="h-12 w-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500 flex items-center justify-center mx-auto">
                   <UploadCloud className="h-6 w-6" />
                 </div>
-                
+
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white">Receipt Screenshot</h3>
                   <p className="text-xs text-gray-400 leading-relaxed mt-1">Upload an image or PDF invoice. FinPilot's OCR parser extracts items instantly into chat.</p>

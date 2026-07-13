@@ -1,12 +1,12 @@
 import { useApp } from '../components/AppContext';
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  Wallet, 
-  ArrowUpRight, 
-  ArrowDownLeft, 
-  Sparkles, 
-  Receipt, 
+import {
+  TrendingUp,
+  TrendingDown,
+  Wallet,
+  ArrowUpRight,
+  ArrowDownLeft,
+  Sparkles,
+  Receipt,
   ArrowRight,
   ShieldCheck,
   Percent,
@@ -18,13 +18,13 @@ import { MOCK_CHART_MONTHLY } from '../mockData';
 import { motion } from 'motion/react';
 
 export default function Dashboard() {
-  const { 
-    userProfile, 
-    transactions, 
-    budgets, 
-    savingsGoals, 
+  const {
+    userProfile,
+    transactions,
+    budgets,
+    savingsGoals,
     setCurrentView,
-    alerts 
+    alerts
   } = useApp();
 
   // Financial computations
@@ -60,7 +60,7 @@ export default function Dashboard() {
   return (
     <div className="space-y-6" id="dashboard-page">
       {/* Welcome Card banner */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         className="relative overflow-hidden bg-gradient-to-r from-indigo-900 via-indigo-950 to-zinc-950 text-white rounded-3xl p-6 border border-indigo-900/40 shadow-xl"
@@ -93,7 +93,7 @@ export default function Dashboard() {
 
       {/* Grid: Balances / KPI Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="dashboard-kpis">
-        
+
         {/* KPI 1: Net Asset Vault */}
         <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col justify-between" id="kpi-net-vault">
           <div className="flex items-center justify-between">
@@ -171,7 +171,7 @@ export default function Dashboard() {
 
       {/* Row: Recharts & Budgets */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="dashboard-analytics-row">
-        
+
         {/* Recharts Area Chart (Wealth trajectory) */}
         <div className="lg:col-span-2 bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col" id="dashboard-chart-card">
           <div className="flex items-center justify-between mb-4">
@@ -197,15 +197,15 @@ export default function Dashboard() {
                 </defs>
                 <XAxis dataKey="month" tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(9, 9, 11, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(9, 9, 11, 0.95)',
                     borderColor: 'rgba(39, 39, 42, 0.8)',
                     color: '#fff',
                     borderRadius: '12px',
                     fontSize: '11px',
                     fontFamily: 'monospace'
-                  }} 
+                  }}
                 />
                 <Area type="monotone" dataKey="Income" stroke="#10b981" strokeWidth={2.5} fillOpacity={1} fill="url(#colorIncome)" />
                 <Area type="monotone" dataKey="Expense" stroke="#ef4444" strokeWidth={2} fillOpacity={1} fill="url(#colorExpense)" />
@@ -224,7 +224,7 @@ export default function Dashboard() {
                 <ArrowRight className="h-3 w-3" />
               </button>
             </div>
-            
+
             <div className="space-y-4">
               {budgets.slice(0, 4).map((b) => {
                 const percentage = Math.min(100, (b.spent / b.limit) * 100);
@@ -239,12 +239,12 @@ export default function Dashboard() {
                       </span>
                     </div>
                     <div className="w-full bg-gray-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full rounded-full transition-all duration-300" 
-                        style={{ 
-                          width: `${percentage}%`, 
-                          backgroundColor: isOverBudget ? '#ef4444' : b.color 
-                        }} 
+                      <div
+                        className="h-full rounded-full transition-all duration-300"
+                        style={{
+                          width: `${percentage}%`,
+                          backgroundColor: isOverBudget ? '#ef4444' : b.color
+                        }}
                       />
                     </div>
                   </div>
@@ -268,7 +268,7 @@ export default function Dashboard() {
 
       {/* Row: Recent Transactions & AI Recommendation Widget */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="dashboard-recent-row">
-        
+
         {/* Transactions List */}
         <div className="lg:col-span-2 bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col justify-between" id="dashboard-recent-transactions">
           <div>
@@ -288,8 +288,8 @@ export default function Dashboard() {
                 <div key={tx.id} className="py-3 flex items-center justify-between" id={`recent-tx-row-${tx.id}`}>
                   <div className="flex items-center gap-3">
                     <div className={`h-9 w-9 rounded-xl flex items-center justify-center shrink-0 ${
-                      tx.type === 'income' 
-                        ? 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-500' 
+                      tx.type === 'income'
+                        ? 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-500'
                         : 'bg-zinc-50 dark:bg-zinc-800 text-gray-500 dark:text-zinc-400'
                     }`}>
                       {tx.type === 'income' ? <Coins className="h-4.5 w-4.5" /> : <Receipt className="h-4.5 w-4.5" />}
@@ -318,7 +318,7 @@ export default function Dashboard() {
               <Sparkles className="h-4 w-4 animate-pulse" />
               <span>FinPilot Recommendation</span>
             </div>
-            
+
             <div className="mt-4">
               <h4 className="text-sm font-bold text-gray-950 dark:text-white leading-tight">Optimization Identified: Pausing $45.00 Redundant SaaS Subscriptions</h4>
               <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2.5 leading-relaxed">

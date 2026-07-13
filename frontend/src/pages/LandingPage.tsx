@@ -1,13 +1,13 @@
 import { useApp } from '../components/AppContext';
-import { 
-  Sparkles, 
-  ArrowRight, 
-  CheckCircle2, 
-  ChevronRight, 
-  ShieldCheck, 
-  Zap, 
-  TrendingUp, 
-  MessageSquareText, 
+import {
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  ChevronRight,
+  ShieldCheck,
+  Zap,
+  TrendingUp,
+  MessageSquareText,
   Receipt,
   DollarSign
 } from 'lucide-react';
@@ -100,19 +100,18 @@ export default function LandingPage() {
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-zinc-400">
             <a href="#features" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
-            <a href="#pricing" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
             <a href="#faq" className="hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
           </div>
 
           <div className="flex items-center gap-4">
-            <button 
+            <button
               id="landing-signin-btn"
               onClick={() => setAuthStep('signin')}
               className="text-sm font-medium text-gray-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
             >
               Sign In
             </button>
-            <button 
+            <button
               id="landing-getstarted-btn"
               onClick={() => setAuthStep('signin')}
               className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-all shadow-md shadow-indigo-600/10 hover:shadow-indigo-600/20 hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
@@ -146,14 +145,14 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            <button
               id="hero-primary-btn"
               onClick={() => setAuthStep('signin')}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-xl shadow-indigo-600/10 hover:shadow-indigo-600/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer text-base"
             >
-              Start Free Trial <ArrowRight className="h-5 w-5" />
+              Get Started <ArrowRight className="h-5 w-5" />
             </button>
-            <a 
+            <a
               id="hero-secondary-btn"
               href="#features"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-850 hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300 font-medium transition-all text-center"
@@ -178,7 +177,7 @@ export default function LandingPage() {
               </div>
               <div className="h-2 w-20 bg-gray-200 dark:bg-zinc-800 rounded-full" />
             </div>
-            
+
             {/* Mock Dashboard body */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-1 opacity-90">
               <div className="bg-slate-50 dark:bg-zinc-950/60 p-6 rounded-2xl border border-gray-200/50 dark:border-zinc-800/60 flex flex-col justify-between">
@@ -190,7 +189,7 @@ export default function LandingPage() {
                   <span className="text-xs font-semibold text-indigo-500 font-mono">PORTFOLIO GAIN: +12.4%</span>
                 </div>
               </div>
-              
+
               <div className="bg-slate-50 dark:bg-zinc-950/60 p-6 rounded-2xl border border-gray-200/50 dark:border-zinc-800/60 flex flex-col justify-between">
                 <div>
                   <span className="text-xs text-gray-400 dark:text-zinc-500 font-mono">SPENDING VELOCITY</span>
@@ -231,7 +230,7 @@ export default function LandingPage() {
             {features.map((feat, idx) => {
               const Icon = feat.icon;
               return (
-                <div 
+                <div
                   id={`feature-card-${idx}`}
                   key={idx}
                   className="bg-slate-50 dark:bg-zinc-900/50 p-8 rounded-2xl border border-gray-200/50 dark:border-zinc-800/50 hover:border-gray-300 dark:hover:border-zinc-700 hover:shadow-lg transition-all duration-300"
@@ -248,113 +247,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 max-w-7xl mx-auto px-6" id="testimonials">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-sans font-bold text-3xl text-gray-900 dark:text-white tracking-tight mb-4">
-            Endorsed by elite engineers & designers.
-          </h2>
-          <p className="text-gray-500 dark:text-zinc-400 text-base">
-            See how high-performing tech professionals are automating their savings routines.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((test, idx) => (
-            <div 
-              id={`testimonial-${idx}`}
-              key={idx}
-              className="bg-white dark:bg-zinc-900 p-8 rounded-2xl border border-gray-250/50 dark:border-zinc-850 shadow-md flex flex-col justify-between"
-            >
-              <p className="text-gray-600 dark:text-zinc-300 font-sans italic text-base leading-relaxed mb-6">
-                "{test.quote}"
-              </p>
-              <div className="flex items-center gap-4">
-                <img src={test.avatar} alt={test.author} className="h-10 w-10 rounded-full object-cover" />
-                <div>
-                  <h4 className="font-sans font-bold text-sm text-gray-950 dark:text-white">{test.author}</h4>
-                  <p className="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">{test.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-24 bg-white dark:bg-zinc-900/40 border-t border-gray-200/40 dark:border-zinc-900/60" id="pricing">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="font-sans font-bold text-3xl text-gray-900 dark:text-white tracking-tight mb-4">
-              Flexible, transparent plans.
-            </h2>
-            <p className="text-gray-500 dark:text-zinc-400 text-base">
-              Choose the depth of automated intelligence your portfolio needs. Cancel any time.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Free Plan */}
-            <div className="bg-slate-50 dark:bg-zinc-900/50 p-8 rounded-3xl border border-gray-200/60 dark:border-zinc-800/80 flex flex-col justify-between" id="pricing-free">
-              <div>
-                <span className="text-xs font-mono font-bold tracking-wider text-gray-400 dark:text-zinc-500 uppercase">ESSENTIALS</span>
-                <h3 className="font-sans font-bold text-2xl text-gray-900 dark:text-white mt-2">Free Core</h3>
-                <div className="flex items-baseline gap-1 mt-4 mb-6">
-                  <span className="text-4xl font-extrabold text-gray-900 dark:text-white">$0</span>
-                  <span className="text-sm text-gray-400 font-mono">/ month</span>
-                </div>
-                <p className="text-sm text-gray-500 dark:text-zinc-400 mb-8">Perfect for basic expense tracking and simple manual budget limits.</p>
-                
-                <ul className="space-y-3 mb-8">
-                  {["Manual transaction inputs", "Standard budget alerts", "Connect up to 2 institutions", "Local web-browser storage"].map((feat, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-sm text-gray-600 dark:text-zinc-300">
-                      <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <button 
-                id="pricing-free-btn"
-                onClick={() => setAuthStep('signin')}
-                className="w-full py-3 rounded-xl border border-gray-300 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300 text-sm font-semibold transition-colors cursor-pointer"
-              >
-                Sign Up Free
-              </button>
-            </div>
-
-            {/* Pro Plan */}
-            <div className="bg-zinc-950 dark:bg-zinc-900 border-2 border-indigo-500 p-8 rounded-3xl flex flex-col justify-between shadow-xl relative overflow-hidden" id="pricing-pro">
-              <div className="absolute top-4 right-4 bg-indigo-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full">POPULAR</div>
-              <div>
-                <span className="text-xs font-mono font-bold tracking-wider text-indigo-400 uppercase">PREMIUM WEALTH</span>
-                <h3 className="font-sans font-bold text-2xl text-white mt-2">FinPilot Pro</h3>
-                <div className="flex items-baseline gap-1 mt-4 mb-6">
-                  <span className="text-4xl font-extrabold text-white">$9.99</span>
-                  <span className="text-sm text-zinc-400 font-mono">/ month</span>
-                </div>
-                <p className="text-sm text-zinc-400 mb-8">Unlock unlimited bank connections, AI recommendation engines, and OCR invoice scanners.</p>
-                
-                <ul className="space-y-3 mb-8">
-                  {["Unlimited bank integrations", "Conversational AI assistant", "Receipt scanner & OCR matching", "Historical predictive analytics", "Emergency fund sinking models", "Multi-device cloud database sync"].map((feat, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-sm text-zinc-200">
-                      <CheckCircle2 className="h-4 w-4 text-indigo-400 shrink-0" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <button 
-                id="pricing-pro-btn"
-                onClick={() => setAuthStep('signin')}
-                className="w-full py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-semibold shadow-md shadow-indigo-500/10 transition-colors cursor-pointer"
-              >
-                Get FinPilot Pro
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Accordion Section */}
       <section className="py-24 max-w-3xl mx-auto px-6" id="faq">
@@ -363,7 +256,7 @@ export default function LandingPage() {
           {FAQ_ITEMS.map((faq, idx) => {
             const isOpen = activeFaq === idx;
             return (
-              <div 
+              <div
                 id={`faq-item-${idx}`}
                 key={idx}
                 className="border border-gray-250/50 dark:border-zinc-800/80 rounded-2xl bg-white dark:bg-zinc-900/30 overflow-hidden transition-all"
@@ -392,7 +285,7 @@ export default function LandingPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">Start taking control of your financial destiny today.</h2>
           <p className="text-zinc-300 text-base mb-8 max-w-xl mx-auto">Join thousands of high-performing engineers, designers, and entrepreneurs optimizing their budgets with artificial intelligence.</p>
-          <button 
+          <button
             id="cta-getstarted-btn"
             onClick={() => setAuthStep('signin')}
             className="px-8 py-4 bg-white text-indigo-950 font-bold rounded-2xl hover:bg-zinc-100 shadow-xl shadow-indigo-950/20 hover:-translate-y-0.5 transition-all flex items-center gap-2 mx-auto cursor-pointer"

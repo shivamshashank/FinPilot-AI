@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { useApp } from '../components/AppContext';
-import { 
-  Plus, 
-  Coins, 
-  TrendingUp, 
-  ArrowDownLeft, 
-  Trash2, 
-  CheckCircle2, 
+import {
+  Plus,
+  Coins,
+  TrendingUp,
+  ArrowDownLeft,
+  Trash2,
+  CheckCircle2,
   Sparkles,
   Briefcase,
   Layers,
@@ -114,7 +114,7 @@ export default function Income() {
 
   return (
     <div className="space-y-6" id="income-hub-page">
-      
+
       {/* Page Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4" id="income-header">
         <div>
@@ -156,7 +156,7 @@ export default function Income() {
 
       {/* Analytics Row: recharts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="income-charts-row">
-        
+
         {/* Income trend trend */}
         <div className="lg:col-span-2 bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col" id="income-trend-card">
           <div className="flex items-center justify-between mb-4">
@@ -172,15 +172,15 @@ export default function Income() {
               <RechartsBarChart data={chartTrendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <XAxis dataKey="month" tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(9, 9, 11, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(9, 9, 11, 0.95)',
                     borderColor: 'rgba(39, 39, 42, 0.8)',
                     color: '#fff',
                     borderRadius: '12px',
                     fontSize: '11px',
                     fontFamily: 'monospace'
-                  }} 
+                  }}
                 />
                 <Bar dataKey="Amount" fill="#10b981" radius={[4, 4, 0, 0]} barSize={28}>
                   {chartTrendData.map((entry, index) => (
@@ -205,14 +205,14 @@ export default function Income() {
             ) : (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: 'rgba(9, 9, 11, 0.95)', 
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: 'rgba(9, 9, 11, 0.95)',
                       borderColor: 'rgba(39, 39, 42, 0.8)',
                       color: '#fff',
                       borderRadius: '12px',
                       fontSize: '11px',
-                    }} 
+                    }}
                   />
                   <Pie
                     data={chartPieData}

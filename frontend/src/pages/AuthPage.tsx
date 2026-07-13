@@ -4,7 +4,7 @@ import { Sparkles, Phone, ArrowLeft, ArrowRight, CheckCircle2, Shield, Lock, Eye
 
 export default function AuthPage() {
   const { authStep, setAuthStep, loginWithGoogle, loginWithPhone, verifyOTP } = useApp();
-  
+
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,7 +51,7 @@ export default function AuthPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 flex items-center justify-center p-4 md:p-6" id="auth-page">
       <div className="max-w-5xl w-full bg-white dark:bg-zinc-900 rounded-3xl border border-gray-200/50 dark:border-zinc-800/80 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 min-h-[600px]" id="auth-box">
-        
+
         {/* Onboarding / Visual Illustration Side Panel (Desktop only) */}
         <div className="hidden md:flex md:col-span-5 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-950 p-10 flex-col justify-between text-white relative overflow-hidden" id="auth-side-panel">
           {/* Subtle glowing spheres */}
@@ -115,7 +115,7 @@ export default function AuthPage() {
 
           {/* Authentication Screen Router */}
           <div className="flex-1 flex flex-col justify-center max-w-md w-full mx-auto py-4">
-            
+
             {/* STEP 1: INITIAL SIGN IN (GOOGLE / PHONE CHOICE) */}
             {authStep === 'signin' && (
               <div id="signin-view" className="space-y-6">
@@ -249,7 +249,7 @@ export default function AuthPage() {
                   >
                     Change Phone Number
                   </button>
-                  
+
                   {countdown > 0 ? (
                     <span className="text-gray-400">Resend code in {countdown}s</span>
                   ) : (
@@ -272,7 +272,7 @@ export default function AuthPage() {
                 <div className="w-16 h-16 bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="h-8 w-8" />
                 </div>
-                
+
                 <div className="space-y-2">
                   <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans">Verification Successful</h1>
                   <p className="text-sm text-gray-500 dark:text-zinc-400 font-sans max-w-sm mx-auto">

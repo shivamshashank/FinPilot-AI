@@ -1,12 +1,12 @@
 import { useApp } from './AppContext';
-import { 
-  LayoutDashboard, 
-  Receipt, 
-  Coins, 
-  PiggyBank, 
-  BarChart3, 
-  MessageSquareText, 
-  Settings, 
+import {
+  LayoutDashboard,
+  Receipt,
+  Coins,
+  PiggyBank,
+  BarChart3,
+  MessageSquareText,
+  Settings,
   Bell,
   LogOut,
   Sparkles,
@@ -33,7 +33,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div 
+    <div
       id="sidebar-container"
       className={`hidden md:flex flex-col h-screen bg-white dark:bg-zinc-950 border-r border-gray-200/50 dark:border-zinc-800/80 transition-all duration-300 relative ${
         isCollapsed ? 'w-20' : 'w-64'
@@ -66,14 +66,14 @@ export default function Sidebar() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = currentView === item.id;
-          
+
           return (
             <button
               id={`nav-item-${item.id}`}
               key={item.id}
               onClick={() => setCurrentView(item.id)}
               className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-200 relative group cursor-pointer ${
-                isActive 
+                isActive
                   ? 'bg-zinc-900 dark:bg-zinc-800 text-white font-medium shadow-sm'
                   : 'text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-zinc-900/60'
               } ${item.highlight && !isActive ? 'border border-indigo-500/20 bg-indigo-50/20 dark:bg-indigo-950/10' : ''}`}
@@ -81,7 +81,7 @@ export default function Sidebar() {
               <Icon className={`h-5 w-5 shrink-0 transition-transform group-hover:scale-105 ${
                 isActive ? 'text-white' : item.highlight ? 'text-indigo-500' : 'text-gray-400 dark:text-zinc-400'
               }`} />
-              
+
               {!isCollapsed && (
                 <span className="font-sans text-sm tracking-tight flex-1 text-left">
                   {item.label}
@@ -112,10 +112,10 @@ export default function Sidebar() {
       {/* User profile section at the bottom */}
       <div className="p-4 border-t border-gray-100 dark:border-zinc-900/50" id="sidebar-footer">
         <div className={`flex items-center gap-3 ${isCollapsed ? 'justify-center' : ''}`}>
-          <img 
+          <img
             id="sidebar-user-avatar"
-            src={userProfile.avatarUrl} 
-            alt={userProfile.name} 
+            src={userProfile.avatarUrl}
+            alt={userProfile.name}
             className="h-9 w-9 rounded-full object-cover ring-2 ring-gray-100 dark:ring-zinc-800"
           />
           {!isCollapsed && (
@@ -125,9 +125,9 @@ export default function Sidebar() {
             </div>
           )}
           {!isCollapsed && (
-            <button 
+            <button
               id="sidebar-logout-button"
-              onClick={logout} 
+              onClick={logout}
               className="p-1.5 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
               title="Log Out"
             >
@@ -136,9 +136,9 @@ export default function Sidebar() {
           )}
         </div>
         {isCollapsed && (
-          <button 
+          <button
             id="sidebar-logout-collapsed"
-            onClick={logout} 
+            onClick={logout}
             className="w-full flex justify-center mt-3 p-2 hover:bg-red-50 dark:hover:bg-red-950/20 text-gray-400 hover:text-red-500 rounded-xl transition-all cursor-pointer"
             title="Log Out"
           >

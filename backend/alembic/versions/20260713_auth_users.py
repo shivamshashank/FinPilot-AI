@@ -5,8 +5,10 @@ Revises: e6bd7b4b0428
 Create Date: 2026-07-13 00:05:00.000000
 
 """
-from alembic import op
+
 import sqlalchemy as sa
+
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = "3f3dc4624d26"
@@ -16,7 +18,12 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.add_column("users", sa.Column("hashed_password", sa.String(length=255), nullable=False, server_default=""))
+    op.add_column(
+        "users",
+        sa.Column(
+            "hashed_password", sa.String(length=255), nullable=False, server_default=""
+        ),
+    )
 
 
 def downgrade() -> None:

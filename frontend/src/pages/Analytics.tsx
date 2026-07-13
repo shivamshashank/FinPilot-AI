@@ -1,30 +1,30 @@
 import { useApp } from '../components/AppContext';
-import { 
-  TrendingUp, 
-  Sparkles, 
-  DownloadCloud, 
-  CheckCircle2, 
-  HelpCircle, 
-  BarChart4, 
-  PieChart as LucidePieChart, 
+import {
+  TrendingUp,
+  Sparkles,
+  DownloadCloud,
+  CheckCircle2,
+  HelpCircle,
+  BarChart4,
+  PieChart as LucidePieChart,
   Calendar,
   Layers,
   Zap
 } from 'lucide-react';
 import { useState, useMemo } from 'react';
-import { 
-  ResponsiveContainer, 
-  AreaChart, 
-  Area, 
-  XAxis, 
-  YAxis, 
-  Tooltip, 
-  BarChart, 
-  Bar, 
-  Legend, 
-  PieChart, 
-  Pie, 
-  Cell 
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  Tooltip,
+  BarChart,
+  Bar,
+  Legend,
+  PieChart,
+  Pie,
+  Cell
 } from 'recharts';
 import { MOCK_CHART_MONTHLY, MOCK_CHART_CASHFLOW, MOCK_CHART_CATEGORIES, MOCK_HEATMAP } from '../mockData';
 
@@ -51,14 +51,14 @@ export default function Analytics() {
 
   return (
     <div className="space-y-6" id="analytics-page">
-      
+
       {/* Title block with Export action */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4" id="analytics-header">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-gray-950 dark:text-white">Wealth Analytics</h1>
           <p className="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">Predictive forecasting models, daily spend density maps, and category velocity indexes.</p>
         </div>
-        
+
         <button
           id="export-pdf-report-btn"
           disabled={isExporting}
@@ -76,7 +76,7 @@ export default function Analytics() {
 
       {/* Financial Health Score & Ratio metrics */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="analytics-health-score-row">
-        
+
         {/* Gauge Metric Card (5 cols) */}
         <div className="lg:col-span-5 bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col justify-between" id="score-gauge-card">
           <div>
@@ -90,7 +90,7 @@ export default function Analytics() {
               <div className="relative h-36 w-36 rounded-full border-4 border-slate-100 dark:border-zinc-800 flex items-center justify-center">
                 {/* Simulated colorful progress boundary */}
                 <div className="absolute inset-[-4px] rounded-full border-4 border-transparent border-t-indigo-500 border-r-indigo-500 border-l-indigo-400 rotate-45" />
-                
+
                 <div className="text-center">
                   <span className="text-4xl font-extrabold text-gray-950 dark:text-white font-mono">{userProfile.financialScore}</span>
                   <span className="text-xs text-gray-400 dark:text-zinc-500 block mt-0.5">GRADE: STABLE</span>
@@ -164,7 +164,7 @@ export default function Analytics() {
 
       {/* Grid: 2 Large Chart widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" id="analytics-charts-grid">
-        
+
         {/* Chart 1: Cash Flow Area */}
         <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm" id="analytics-cashflow-card">
           <div className="flex items-center justify-between mb-4">
@@ -188,14 +188,14 @@ export default function Analytics() {
                 </defs>
                 <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(9, 9, 11, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(9, 9, 11, 0.95)',
                     borderColor: 'rgba(39, 39, 42, 0.8)',
                     color: '#fff',
                     borderRadius: '12px',
                     fontSize: '11px',
-                  }} 
+                  }}
                 />
                 <Area type="monotone" dataKey="NetWorth" stroke="#6366f1" strokeWidth={2.5} fillOpacity={1} fill="url(#colorNetWorth)" />
                 <Area type="monotone" dataKey="Cash" stroke="#3b82f6" strokeWidth={2} fillOpacity={1} fill="url(#colorCash)" />
@@ -217,14 +217,14 @@ export default function Analytics() {
               <BarChart data={MOCK_CHART_MONTHLY} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <XAxis dataKey="month" tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10, fill: '#71717a' }} axisLine={false} tickLine={false} />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(9, 9, 11, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(9, 9, 11, 0.95)',
                     borderColor: 'rgba(39, 39, 42, 0.8)',
                     color: '#fff',
                     borderRadius: '12px',
                     fontSize: '11px',
-                  }} 
+                  }}
                 />
                 <Legend verticalAlign="top" height={32} iconType="circle" iconSize={8} wrapperStyle={{ fontSize: '11px' }} />
                 <Bar dataKey="Income" fill="#10b981" radius={[3, 3, 0, 0]} />
@@ -238,7 +238,7 @@ export default function Analytics() {
 
       {/* Row: Heatmap spending density & categories analysis */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="analytics-heatmap-distribution-row">
-        
+
         {/* Heatmap intensity grid (7 cols) */}
         <div className="lg:col-span-7 bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-200/50 dark:border-zinc-850 shadow-sm flex flex-col justify-between animate-fade-in" id="heatmap-intensity-card">
           <div>
@@ -250,7 +250,7 @@ export default function Analytics() {
             <div className="col-span-1 flex flex-col justify-between text-xs font-mono text-gray-400 py-1.5 pr-2 border-r border-gray-100 dark:border-zinc-800 shrink-0">
               {["Mon", "Wed", "Fri", "Sun"].map((day) => <span key={day}>{day}</span>)}
             </div>
-            
+
             <div className="col-span-4 grid grid-cols-4 gap-2" id="heatmap-weeks">
               {/* Representing weeks */}
               {Array.from({ length: 4 }).map((_, weekIdx) => (
@@ -262,8 +262,8 @@ export default function Analytics() {
                     const val = item[keyName];
 
                     return (
-                      <div 
-                        key={dayIdx} 
+                      <div
+                        key={dayIdx}
                         className={`h-7 rounded-lg transition-all flex items-center justify-center text-[10px] font-mono cursor-pointer hover:ring-2 hover:ring-indigo-500 hover:scale-105 ${getIntensityClass(val)}`}
                         title={`${item.day} Week ${weekIdx+1}: $${val} spent`}
                       >
@@ -298,14 +298,14 @@ export default function Analytics() {
           <div className="h-44 w-full flex items-center justify-center relative my-4" id="analytics-categories-pie">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(9, 9, 11, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(9, 9, 11, 0.95)',
                     borderColor: 'rgba(39, 39, 42, 0.8)',
                     color: '#fff',
                     borderRadius: '12px',
                     fontSize: '11px',
-                  }} 
+                  }}
                 />
                 <Pie
                   data={MOCK_CHART_CATEGORIES}
